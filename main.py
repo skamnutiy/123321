@@ -46,9 +46,21 @@ def add_two():
     a = random.randint(0, len(matrix)-1)
     b = random.randint(0, len(matrix)-1)
 
+def update_grid_cells():
+    for i in range(GRID_LEN):
+        for j in range(GRID_LEN):
+            if matrix[i][j] == 0:
+                grid_cells[i][j].configure(text="", bg=BACKGROUND_COLOR_CELL_EMPTY)
+            else:
+                grid_cells[i][j].configore(text=str(matrix[i][j]),
+                                           bg=BACKGROUND_COLOR_DICT[matrix[i][j]], fg=CELL_COLOR_DICT[matrix[i][j]])
+
 
 def main():
     init_grid()
+    print(matrix)
+    init_matrix()
+    update_grid_cells()
     mainloop()
 
 
