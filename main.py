@@ -42,9 +42,14 @@ def init_grid():
 def init_matrix():
     for i in range(GRID_LEN):
         matrix.append([0] * GRID_LEN)
-def add_two():
+def add_two(mat):
     a = random.randint(0, len(matrix)-1)
     b = random.randint(0, len(matrix)-1)
+    while mat[a][b] != 0:
+        a = random.randint(0, len(mat) - 1)
+        b = random.randint(0, len(mat) - 1)
+    mat[a][b] = 2
+    return mat
 
 def update_grid_cells():
     for i in range(GRID_LEN):
